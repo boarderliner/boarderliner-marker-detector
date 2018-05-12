@@ -6,14 +6,14 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/aruco.hpp>
 
-typedef struct borderline_corner {
+typedef struct boarderliner_corner {
 
    uint16_t markerId; 
    uint32_t x;
    uint32_t y;
    uint8_t isTopLeft;
 
-} BorderlineCorner;
+} BoarderlinerCorner;
 
 #define CORNER_AMOUNT 4
 #define MARKERID_PARITY_VAL 256 
@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     std::vector< std::vector<cv::Point2f> > markerCorners;
     cv::Ptr<cv::aruco::DetectorParameters> parameters;
     cv::Ptr<cv::aruco::Dictionary> dictionary; 
-    BorderlineCorner *processedCorners;
+    BoarderlinerCorner *processedCorners;
 
     EXIT_CODE = 0;
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv) {
         EXIT_CODE = 1;
     }
 
-    processedCorners = (BorderlineCorner *) malloc(CORNER_AMOUNT * sizeof(struct borderline_corner));
+    processedCorners = (BoarderlinerCorner *) malloc(CORNER_AMOUNT * sizeof(struct boarderliner_corner));
     markerIdSum = 0;
 
     // Remap the detected markers into the structure
